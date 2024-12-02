@@ -47,6 +47,10 @@ class User extends Authenticatable
     }
 
     public function userTypes(): BelongsTo{
-        return $this->belongsTo(userTypes::class);
+        return $this->belongsTo(UserTypes::class);
+    }
+
+    public function meetings(): HasMany {
+        return $this->hasMany(Meeting_user_user::class);
     }
 }
