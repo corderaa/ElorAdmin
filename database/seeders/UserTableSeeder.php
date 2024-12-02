@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class UserTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('users')-> insert([
+            "name"=>"test",
+            "lastNames"=>"test",
+            "DNI"=>"TEST",
+            "phone"=>"TEST",
+            "email"=>"test@test.com",
+            "userType_id"=>1,
+            "password"=>"test"
+        ]);
+    }
+}
