@@ -12,12 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subject_user_schedules', function (Blueprint $table) {
+
             $table->id();
             $table->timestamps();
             $table->boolean('is_Teacher');
-            $table->foreign('schedule_id')->references('id')->on('schedules');
+            $table->date('day');
+            $table->time('hour');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('subject_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('subject_id')->references('id')->on('subjects');
+            //$table->foreign('subject_id')->references('id')->on('subjects');
 
         });
     }
