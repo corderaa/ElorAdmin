@@ -16,11 +16,11 @@ class UserTableSeeder extends Seeder
         DB::table('users')-> insert([
             "name"=>"test",
             "lastNames"=>"test",
-            "DNI"=>"TEST",
+            "DNI"=>"TEST2",
             "phone"=>"TEST",
-            "email"=>"test@test.com",
+            "email"=>"test2@test.com",
             "userType_id"=>1,
-            "password"=>"test"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
     }
 }
