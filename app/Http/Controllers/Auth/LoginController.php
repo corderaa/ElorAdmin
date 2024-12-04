@@ -23,8 +23,6 @@ class LoginController extends Controller
     /**
      * Where to redirect users after login.
      *
-     * Add if user is admin -> redirect to home/admin page
-     *
      * @var string
      */
     protected $redirectTo = '/home';
