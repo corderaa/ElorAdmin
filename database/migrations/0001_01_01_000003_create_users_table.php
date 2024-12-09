@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+    use Illuminate\Database\Eloquent\Relations\HasMany;
 
 return new class extends Migration
 {
@@ -14,8 +15,16 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('lastNames');
+            $table->string('DNI')->unique();
+            $table->string('address')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('phone');
+            $table->string('phone2')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedBigInteger('userType_id');
+            $table->foreign('userType_id')->references('id')->on('user_types');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
