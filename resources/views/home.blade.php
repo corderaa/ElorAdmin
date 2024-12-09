@@ -4,17 +4,21 @@
 $user = Auth::user();
 $userType = Auth::user()->userTypes;  
 ?>
+@vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Panel User</div>
-
-                <div class="card-body">
-                    Usuario = {{$user->DNI}} ----- {{$userType->role}}
-                </div>
+        <div class="col-md-8 flex">
+            <div class="text-center">
+                <h1 class="tw-font-semibold tw-mt-10 tw-text-5xl">Tus Ciclos Formativos</h1>
             </div>
+            <div class="tw-flex tw-justify-around">
+                @foreach ($user->studies as $study)
+                <div id="caja-ciclo">
+                
+                </div>
+                @endforeach
+            </div> 
         </div>
     </div>
 </div>

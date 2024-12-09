@@ -2,14 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class User_studies extends Model
+class User_studies extends Pivot
 {
-    public function studies(): HasMany {
-        return $this->hasMany(Studies::class);
-    }
-    public function users(): HasMany {
-        return $this->hasMany(User::class);
-    }
+
 }
