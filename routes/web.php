@@ -6,7 +6,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         if ( Auth::user()->userType_id == 1) // use Auth::check instead of Auth::user
         {
-            return view('/admin');
+            return view('/admin/index');
         } else {
             return view('/home');
         }
