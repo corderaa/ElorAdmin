@@ -13,11 +13,9 @@ $userType = Auth::user()->userTypes;
                 <h1 class="tw-font-semibold tw-mt-10 tw-text-5xl">Tus Ciclos Formativos</h1>
             </div>
             <div class="tw-flex tw-justify-around">
-                @foreach ($user->studies as $study)
                 <div id="caja-ciclo">
                 
                 </div>
-                @endforeach
             </div> 
         </div>
     </div>
