@@ -8,7 +8,7 @@ Route::middleware(['auth'])->group(function () {
         {
             return view('/admin');
         } else {
-            return view('/');
+            return view('/home');
         }
     }); 
 });

@@ -4,7 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -47,8 +49,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function userTypes(): BelongsTo{
-        return $this->belongsTo(UserTypes::class);
+    public function userTypes(): HasOne{
+        return $this->hasOne(UserType::class, 'id','userType_id');
     }
 
     public function meetings(): HasMany {

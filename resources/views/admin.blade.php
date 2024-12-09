@@ -2,6 +2,7 @@
 
 <?php
 $user = Auth::user();
+$userType = Auth::user()->userTypes; 
 ?>
 @section('content')
 <div class="container">
@@ -11,7 +12,7 @@ $user = Auth::user();
                 <div class="card-header">Panel Admin</div>
 
                 <div class="card-body">
-                    Usuario = {{$user->DNI}} ----- {{$user->userType_id}}
+                    Usuario = {{$user->DNI}} ----- {{$userType->role}}
                 </div>
             </div>
         </div>
