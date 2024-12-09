@@ -17,5 +17,17 @@ class UserTypeSeeder extends Seeder
             "role"=>"GOD",
             "description"=>"es dios",
         ]);
+        DB::table('user_types')-> insert([
+            "role"=>"ADMIN",
+            "description"=>"es dios",
+        ]);
+        DB::table('user_types')-> insert([
+            "role"=>"TEACHER",
+            "description"=>"es dios",
+        ]);
+        DB::table('user_types')-> insert([
+            "role"=>"USER",
+            "description"=>"es dios",
+        ]);
     }
 }
