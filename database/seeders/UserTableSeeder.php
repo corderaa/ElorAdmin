@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test2@test.com",
             "userType_id"=>1,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlb1ElQHgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
         DB::table('users')-> insert([
@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test3@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbEl2QHgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
         DB::table('users')-> insert([
@@ -40,7 +40,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test4@test.com",
             "userType_id"=>3,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ3HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
         DB::table('users')-> insert([
@@ -50,7 +50,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test5@test.com",
             "userType_id"=>3,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgA4dBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
         DB::table('users')-> insert([
@@ -60,7 +60,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test6@test.com",
             "userType_id"=>1,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgA5dBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
         DB::table('users')-> insert([
@@ -70,7 +70,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test7@test.com",
             "userType_id"=>2,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante1",
@@ -79,7 +79,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante1",
             "email"=>"estudiante1@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante2",
@@ -88,7 +88,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante2",
             "email"=>"estudiante2@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante3",
@@ -97,7 +97,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante3",
             "email"=>"estudiante3@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante4",
@@ -106,7 +106,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante4",
             "email"=>"estudiante4@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante5",
@@ -115,7 +115,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante5",
             "email"=>"estudiante5@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante6",
@@ -124,7 +124,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante6",
             "email"=>"estudiante6@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante7",
@@ -133,7 +133,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante7",
             "email"=>"estudiante7@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante8",
@@ -142,7 +142,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante8",
             "email"=>"estudiante8@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante9",
@@ -151,7 +151,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante9",
             "email"=>"estudiante9@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante10",
@@ -160,7 +160,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante10",
             "email"=>"estudiante10@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante11",
@@ -169,7 +169,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante11",
             "email"=>"estudiante11@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante12",
@@ -178,7 +178,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante12",
             "email"=>"estudiante12@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante13",
@@ -187,7 +187,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante13",
             "email"=>"estudiante13@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante14",
@@ -196,7 +196,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante14",
             "email"=>"estudiante14@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
         DB::table('users')-> insert([
             "name"=>"estudiante15",
@@ -205,7 +205,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"estudiante15",
             "email"=>"estudiante15@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQ6HgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
     }
