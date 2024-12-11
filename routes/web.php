@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
@@ -11,7 +13,13 @@ Route::middleware(['auth'])->group(function () {
             return view('/home');
         }
     }); 
+
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/users','index')->name('users.index');
+    });
 });
+
+
 
 Auth::routes();
 
