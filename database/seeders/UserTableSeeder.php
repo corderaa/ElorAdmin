@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
             "phone"=>"TEST",
             "email"=>"test3@test.com",
             "userType_id"=>4,
-            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbEl2QHgAdBR3i"
+            "password"=>"$2y$10$/E.Nr1M4wHLm5n5OwbqGE.Eh1jkgEzqNEXV/DRaqlbElQHgAdBR3i"
         ]);
 
         DB::table('users')-> insert([
