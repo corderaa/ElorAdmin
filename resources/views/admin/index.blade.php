@@ -1,10 +1,10 @@
 @extends('layouts.app')
-
+@vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
 <?php
 $user = Auth::user();
 $userType = Auth::user()->userTypes; 
 ?>
-@vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
+
 @section('content')
 
 
@@ -19,31 +19,34 @@ $userType = Auth::user()->userTypes;
           <h5 class="offcanvas-title" id="sidebarMenuLabel">Panel Administrador</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
         </div>
+
+        <!-- Datos del menu -->
+         
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
-                Alumnos
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="">
+                <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Alumnos</p>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Personal
+                <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Personal</p>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Ciclos formativos
+                <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Ciclos formativos</p>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Modulos
+                <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Modulos</p>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Reuniones
+                <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Reuniones</p>
               </a>
           </ul>
         </div>
