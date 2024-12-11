@@ -18,7 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('second_user_id');
             $table->foreign('second_user_id')->references('id')->on('users');
             $table->foreign('first_user_id')->references('id')->on('users');
-            $table->date('meeting_date');
+            $table->date('day');
+            $table->integer('hour');
+            $table->unique(['first_user_id', 'day','hour']);
+            $table->unique(['second_user_id', 'day','hour']);
         });
     }
 

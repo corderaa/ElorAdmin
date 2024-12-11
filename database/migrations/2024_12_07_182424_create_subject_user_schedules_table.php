@@ -15,14 +15,13 @@ return new class extends Migration
 
             $table->id();
             $table->timestamps();
-            $table->boolean('is_Teacher');
             $table->date('day');
-            $table->time('hour');
+            $table->integer('hour');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('subject_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('subject_id')->references('id')->on('subjects');
-
+            $table->unique(['user_id', 'day','hour']);
         });
     }
 
