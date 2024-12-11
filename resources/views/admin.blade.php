@@ -14,6 +14,7 @@ $userType = Auth::user()->userTypes;
                 <div class="card-body">
                     Usuario = {{$user->DNI}} ----- {{$userType->role}}
                 </div>
+                <a href="{{ route('users.index') }}">hola</a>
             </div>
         </div>
     </div>

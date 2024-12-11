@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
@@ -13,9 +14,9 @@ Route::middleware(['auth'])->group(function () {
         }
     }); 
 
-    Route::resources([
-        'users' => UserController::class,
-    ]);
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/users','index')->name('users.index');
+    });
 });
 
 
