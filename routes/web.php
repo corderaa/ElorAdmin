@@ -11,7 +11,7 @@ Route::middleware(['auth'])->group(function () {
             //return view('/admin/index');
             return redirect()->route('users.adminIndex');
         } else {
-            return view('/home');
+            return redirect()->route('users.studentIndex');
         }
     }); 
 
