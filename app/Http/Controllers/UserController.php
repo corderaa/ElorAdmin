@@ -2,21 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserType;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function adminIndex(Request $request)
+    {
+        $users = User::orderBy('created_at')->get();
+        $role = UserType::where('role','USER')->first();
+        $students = User::where("userType_id", $role->id)->count();
+
+        $rolePersonal = UserType::where('role','GOD')->first();
+        $personal = User::where("userType_id", $rolePersonal->id)->count();
+
+        if ($request->expectsJson()) {
+            return response()->json($users);
+        } else {
+            return view('admin.index',['users' => $users, 'students' => $students, 'personal' => $personal]);
+        }
+    }
+
+    public function studentIndex(Request $request)
     {
         $users = User::orderBy('created_at')->get();
         if ($request->expectsJson()) {
             return response()->json($users);
-        }else{
-            return view('users.index',['users' => $users]);
+        } else {
+            return view('/home',['users' => $users]);
         }
     }
 
@@ -72,4 +90,5 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index');
     }
+    
 }

@@ -1,13 +1,7 @@
 @extends('layouts.app')
 @vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
-<?php
-$user = Auth::user();
-$userType = Auth::user()->userTypes; 
-?>
 
 @section('content')
-
-
 
  <!-- Menu -->
 
@@ -57,8 +51,9 @@ $userType = Auth::user()->userTypes;
 <!-- Dashboard -->
 <div>
   <h1 class="tw-text-center tw-pt-10">DashBoard</h1>
-  <p>Numero de alumnos matriculados:</p>
-  <p>Numero de personal del instituto:</p>
+
+  <p>Numero de alumnos matriculados: {{ $students }}</p>
+  <p>Numero de personal del instituto: {{ $personal }}</p>
   <p>Numero de reuniones aceptadas para el dia de hoy:</p>
   <p>Numero de reuniones pendientes para hoy:</p>
   <p>Numero de reuniones totales a partir de hoy:</p>
