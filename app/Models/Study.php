@@ -14,6 +14,6 @@ class Study extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)->using(user_studies::class);
+        return $this->belongsToMany(User::class);
     }
 }
