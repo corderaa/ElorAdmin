@@ -62,4 +62,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Study::class);
     }
+
+    public function schedules(): HasMany {
+        return $this->hasMany(Subject_user_schedule::class);
+    }
 }

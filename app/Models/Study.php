@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Study extends Model
 {
     public function subject(): HasMany {
-        return $this->hasMany(Subject::class);
+        return $this->hasMany(Subject::class,'studies_id');
     }
 
     public function users(): BelongsToMany
