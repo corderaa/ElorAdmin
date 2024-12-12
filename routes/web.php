@@ -16,7 +16,7 @@ Route::middleware(['auth'])->group(function () {
     }); 
 
     Route::controller(UserController::class)->group(function(){
-        Route::get('/users','adminIndex')->name('users.adminIndex');
+        Route::get('/admin','adminIndex')->name('users.adminIndex');
         Route::get('/users','studentIndex')->name('users.studentIndex');
     });
     
