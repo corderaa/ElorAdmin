@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function userTypes(): HasOne{
-        return $this->hasOne(UserType::class, 'id','userType_id');
+        return $this->hasOne(UserType::class, 'id');
     }
 
     public function meetings(): HasMany {
@@ -60,6 +60,6 @@ class User extends Authenticatable
 
     public function studies(): BelongsToMany
     {
-        return $this->belongsToMany(Study::class)->using(user_studies::class);
+        return $this->belongsToMany(Study::class);
     }
 }

@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserType extends Model
 {
-    public function users(): HasOne {
-        return $this->hasOne(User::class);
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
