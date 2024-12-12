@@ -18,8 +18,8 @@ class UserController extends Controller
         $role = UserType::where('role','USER')->first();
         $students = User::where("userType_id", $role->id)->count();
 
-        $rolePersonal = UserType::where('role','GOD')->first();
-        $personal = User::where("userType_id", $rolePersonal->id)->count();
+        $rolePersonal = UserType::where('role','USER')->first();
+        $personal = User::whereNot("userType_id", $rolePersonal->id)->count();
 
         if ($request->expectsJson()) {
             return response()->json($users);

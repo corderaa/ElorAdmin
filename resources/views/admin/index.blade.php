@@ -47,20 +47,60 @@
       </div>
     </div>
 </div>
-
 <!-- Dashboard -->
-<div>
-  <h1 class="tw-text-center tw-pt-10">DashBoard</h1>
+<div class= "row">
+  
+  <h1 class="tw-text-center tw-pt-10 tw-pb-10 tw-font-bold">DashBoard</h1>
+  
+  <div class = "tw-flex tw-flex-row tw-justify-evenly tw-w-full tw-pb-5">
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Alumnos matriculados</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $students }}</p>
+      </div>
 
-  <p>Numero de alumnos matriculados: {{ $students }}</p>
-  <p>Numero de personal del instituto: {{ $personal }}</p>
-  <p>Numero de reuniones aceptadas para el dia de hoy:</p>
-  <p>Numero de reuniones pendientes para hoy:</p>
-  <p>Numero de reuniones totales a partir de hoy:</p>
-  <p>Numero de ciclos formativos:</p>
-  <p>Numero de usuarios sin rol:</p>
-  <p>Numero de modulos:</p>
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Personal del instituto</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones aceptadas hoy</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones pendientes  hoy</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+  </div>
+
+  <div class = " tw-flex tw-flex-row tw-justify-evenly tw-w-full">
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones totales a partir de hoy</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Ciclos formativos</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Usuarios sin rol</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+
+      <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
+        <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Modulos</h5>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+      </div>
+  </div>
+
+  
 </div>
+
+
   
     
 @endsection
+
