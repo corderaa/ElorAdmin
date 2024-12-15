@@ -28,7 +28,7 @@
                                 <ul>
                                     @foreach($subject->schedules as $schedule)
                                     <li>
-                                    {{ $schedule->day }}
+                                    hola {{ $schedule->name }}
                                     </li>
                                     @endforeach
                                 </ul>

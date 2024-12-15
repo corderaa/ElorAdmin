@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject_user_schedule extends Model{
     
-    public function user(): HasMany {
-        return $this->hasMany(User::class);
-    }
-    public function subject(): HasMany {
+    public function subjects(): HasMany {
         return $this->hasMany(Subject::class);
+    }
+
+    public function users(): HasMany {
+        return $this->hasMany(User::class, 'user_id');
     }
 
 }

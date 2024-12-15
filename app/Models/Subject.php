@@ -12,6 +12,6 @@ class Subject extends Model{
     }
 
     public function schedules(): BelongsToMany{
-        return $this->belongsToMany(Subject_user_schedule::class, "subject_user_schedules", "user_id", "subject_id", "subject_id");
+        return $this->belongsToMany(Subject_user_schedule::class, "subject_user_schedules", "subject_id", "user_id");
     }
 }

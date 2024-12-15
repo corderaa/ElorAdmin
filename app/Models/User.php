@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function userTypes(): HasOne{
-        return $this->hasOne(UserType::class, 'id');
+        return $this->hasOne(UserType::class);
     }
 
     public function meetings(): HasMany {
@@ -64,6 +64,6 @@ class User extends Authenticatable
     }
 
     public function schedules(): HasMany {
-        return $this->hasMany(Subject_user_schedule::class);
+        return $this->hasMany(User::class);
     }
 }
