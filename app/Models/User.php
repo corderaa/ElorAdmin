@@ -63,7 +63,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Study::class);
     }
 
-    public function schedules(): HasMany {
-        return $this->hasMany(User::class);
+    // usuario profesor -> enseña subject
+    public function teaches(): BelongsToMany {
+        return $this->belongsToMany(Subject::class, "subject_user_schedules")->withPivot('day','hour');
     }
 }

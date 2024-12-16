@@ -26,9 +26,9 @@
                                 @foreach($study->subject as $subject)
                                 <p class="tw-m-0 tw-p-3">{{ $subject->name }}</p>
                                 <ul>
-                                    @foreach($subject->schedules as $schedule)
+                                    @foreach($subject->teachers as $teacher)
                                     <li>
-                                    hola {{ $schedule->name }}
+                                    hola {{ $teacher->name }}
                                     </li>
                                     @endforeach
                                 </ul>

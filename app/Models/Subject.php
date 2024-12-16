@@ -11,7 +11,7 @@ class Subject extends Model{
         return $this->belongsTo(Study::class);
     }
 
-    public function schedules(): BelongsToMany{
-        return $this->belongsToMany(Subject_user_schedule::class, "subject_user_schedules", "subject_id", "user_id");
+    public function teachers(): BelongsToMany{
+        return $this->belongsToMany(User::class, "subject_user_schedules")->withPivot('day','hour');
     }
 }
