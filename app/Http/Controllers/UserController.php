@@ -29,6 +29,22 @@ class UserController extends Controller
         }
     }
 
+    public function godIndex(Request $request)
+    {
+        $users = User::orderBy('created_at')->get();
+        $role = UserType::where('role','USER')->first();
+        $students = User::where("userType_id", $role->id)->count();
+
+        $rolePersonal = UserType::where('role','GOD')->first();
+        $personal = User::where("userType_id", $rolePersonal->id)->count();
+
+        if ($request->expectsJson()) {
+            return response()->json($users);
+        } else {
+            return view('god.index',['users' => $users, 'students' => $students, 'personal' => $personal]);
+        }
+    }
+
     public function studentIndex(Request $request)
     {
     //$userType = Auth::user()->userTypes;
@@ -65,7 +81,12 @@ class UserController extends Controller
         
         return $teachers;
     }
+/*
+    public function adminIndex(Request $request)
+    {
 
+    }
+    */
     /**
      * Show the form for creating a new resource.
      */
