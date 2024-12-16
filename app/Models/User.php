@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function userTypes(): HasOne{
-        return $this->hasOne(UserType::class);
+        return $this->hasOne(UserType::class, 'id');
     }
 
     public function meetings(): HasMany {
