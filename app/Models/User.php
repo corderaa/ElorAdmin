@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function userTypes(): HasOne{
-        return $this->hasOne(UserType::class, 'id');
+        return $this->hasOne(UserType::class);
     }
 
     public function meetings(): HasMany {
@@ -61,5 +61,10 @@ class User extends Authenticatable
     public function studies(): BelongsToMany
     {
         return $this->belongsToMany(Study::class);
+    }
+
+    // usuario profesor -> enseña subject
+    public function teaches(): BelongsToMany {
+        return $this->belongsToMany(Subject::class, "subject_user_schedules")->withPivot('day','hour');
     }
 }
