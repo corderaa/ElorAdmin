@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Study;
 use App\Models\UserType;
+use App\Models\Subject;
+use App\Models\Meeting_user_user;
 
 class UserController extends Controller
 {
@@ -22,15 +25,26 @@ class UserController extends Controller
         $rolePersonal = UserType::where('role','USER')->first();
         $personal = User::whereNot("userType_id", $rolePersonal->id)->count();
 
+        $studies = Study::count();
+
+        $subjects = Subject::count();
+
+        $usersWithNoRole = User::where('userType_id', 'null')->count();
+
+        $date = date('m/d/Y h:i:s a', time());
+        $meeting = Meeting_user_user::where('day', '>', $date)->count();
+
+        //$meetingToday= Meeting_user_user::where('day',$date, 'first_user_id', 3)->count();
+
         if ($request->expectsJson()) {
             return response()->json($users);
         } else {
-            return view('admin.index',['users' => $users, 'students' => $students, 'personal' => $personal]);
+            return view('admin.index',['users' => $users, 'students' => $students, 'personal' => $personal, 'studies' => $studies, 'subjects' => $subjects, 'usersWithNoRole' => $usersWithNoRole, 'meeting' => $meeting]);
         }
     }
 
     public function studentIndex(Request $request)
-    {
+    { 
     //$userType = Auth::user()->userTypes;
     //$teachers = null;
     //

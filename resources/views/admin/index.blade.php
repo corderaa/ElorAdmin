@@ -77,22 +77,22 @@
   <div class = " tw-flex tw-flex-row tw-justify-evenly tw-w-full">
       <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
         <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones totales a partir de hoy</h5>
-        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $meeting }}</p>
       </div>
 
       <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
         <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Ciclos formativos</h5>
-        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $studies }}</p>
       </div>
 
       <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
         <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Usuarios sin rol</h5>
-        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $usersWithNoRole }}</p>
       </div>
 
       <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
         <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Modulos</h5>
-        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
+        <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $subjects }}</p>
       </div>
   </div>
 
