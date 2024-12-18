@@ -22,15 +22,6 @@ Route::middleware(['auth'])->group(function () {
             default:
             
         }
-        /*
-        if ( Auth::user()->userType_id == 1) // use Auth::check instead of Auth::user
-        {
-            //return view('/admin/index');
-            return redirect()->route('users.adminIndex');
-        } else {
-            return redirect()->route('users.studentIndex');
-        }
-            */
     }); 
 
     Route::controller(UserController::class)->group(function(){

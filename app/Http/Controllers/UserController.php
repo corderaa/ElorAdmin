@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserType;
+use App\Models\Subject_user_schedule;
 
 class UserController extends Controller
 {
@@ -45,23 +46,28 @@ class UserController extends Controller
         }
     }
 
+    public function teacherIndex(Request $request)
+    {
+        $users = User::orderBy('created_at')->get();
+        $role = UserType::where('role','USER')->first();
+        $students = User::where("userType_id", $role->id)->count();
+
+        $rolePersonal = UserType::where('role','TEACHER')->first();
+        $personal = User::where("userType_id", $rolePersonal->id)->count();
+        $authenticatedUser = Auth::user();
+        $user_id = $authenticatedUser->id;
+        $subject = Subject_user_schedule::where('user_id',$user_id)->count();
+        $personal = $subject;
+
+        if ($request->expectsJson()) {
+            return response()->json($users);
+        } else {
+            return view('teacher.index',['users' => $users, 'students' => $students, 'personal' => $personal]);
+        }
+    }
+
     public function studentIndex(Request $request)
     {
-    //$userType = Auth::user()->userTypes;
-    //$teachers = null;
-    //
-    //function getTeacher(){
-    //    $teachers = DB::table("subject_user_schedules as sus")
-    //->join("users as u", function($join){
-    //	$join->on("sus.user_id", "=", "u.id");
-    //})
-    //->join("subjects as s", function($join){
-    //	$join->on("sus.subject_id", "=", "s.id");
-    //})
-    //->select("u.name", "u.email")
-    //->where("s.id", "=", 1)
-    //->get();
-    //}
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
