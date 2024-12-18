@@ -13,7 +13,12 @@ Route::middleware(['auth'])->group(function () {
         } else {
             return redirect()->route('users.studentIndex');
         }
+
     }); 
+
+    Route::get('/admin/student/index', function(){
+        return view('/admin/student/index');
+    })->name('admin.student.index');
 
     Route::controller(UserController::class)->group(function(){
         Route::get('/admin','adminIndex')->name('users.adminIndex');

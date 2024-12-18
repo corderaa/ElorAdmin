@@ -19,7 +19,7 @@
         <div class="offcanvas-body d-md-flex flex-row p-0 overflow-y-auto tw-w-full tw-justify-center">
           <ul class="nav flex-row tw-justify-evenly tw-w-full">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{ route('admin.student.index') }}">
                 <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Alumnos</p>
               </a>
             </li>
