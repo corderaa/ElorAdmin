@@ -4,7 +4,7 @@
 @section('content')
 
  <!-- Menu -->
-
+<div>
 <div class="container-fluid">
   <div class="row">
     <div class="sidebar border border-right col-md-30 col-lg-20 p-0 bg-body-tertiary">
@@ -98,6 +98,8 @@
 
   
 </div>
+</div>
+
 
 
   
