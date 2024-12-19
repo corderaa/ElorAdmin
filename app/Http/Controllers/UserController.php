@@ -53,43 +53,11 @@ class UserController extends Controller
 
     }
 
-    public function studentIndex(Request $request)
+    public function studentHome(Request $request)
     {
-    //$userType = Auth::user()->userTypes;
-    //$teachers = null;
-    //
-    //function getTeacher(){
-    //    $teachers = DB::table("subject_user_schedules as sus")
-    //->join("users as u", function($join){
-    //	$join->on("sus.user_id", "=", "u.id");
-    //})
-    //->join("subjects as s", function($join){
-    //	$join->on("sus.subject_id", "=", "s.id");
-    //})
-    //->select("u.name", "u.email")
-    //->where("s.id", "=", 1)
-    //->get();
-    //}
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
-
-
-    }
-
-    function getTeacher(User $authenticatedUser){
-        $teachers = DB::table("subject_user_schedules as sus")
-        ->join("users as u", function($join){
-        	$join->on("sus.user_id", "=", "u.id");
-        })
-        ->join("subjects as s", function($join){
-        	$join->on("sus.subject_id", "=", "s.id");
-        })
-        ->select("u.name", "u.email")
-        ->where("s.id", "=", 1)
-        ->get();
-
-        return $teachers;
     }
 
     /**
