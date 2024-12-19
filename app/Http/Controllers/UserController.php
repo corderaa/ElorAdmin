@@ -43,8 +43,18 @@ class UserController extends Controller
         }
     }
 
+    public function getAllStudent(Request $request)
+    {
+            $students = User::all();
+
+            return view('admin.student.index',['students' => $students]);
+
+        //return view('admin.student.index', compact('students'));
+
+    }
+
     public function studentIndex(Request $request)
-    { 
+    {
     //$userType = Auth::user()->userTypes;
     //$teachers = null;
     //
@@ -63,6 +73,8 @@ class UserController extends Controller
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
+
+
     }
 
     function getTeacher(User $authenticatedUser){
@@ -76,7 +88,7 @@ class UserController extends Controller
         ->select("u.name", "u.email")
         ->where("s.id", "=", 1)
         ->get();
-        
+
         return $teachers;
     }
 
@@ -86,7 +98,7 @@ class UserController extends Controller
     public function create()
     {
         return view('users.create');
-    }   
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -94,7 +106,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = new User();
-        
+
         $user->save();
         return redirect()->route('users.index');
     }
@@ -132,5 +144,5 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index');
     }
-    
+
 }
