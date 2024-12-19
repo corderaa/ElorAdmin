@@ -8,10 +8,10 @@
     <div class="row">
         <div class="sidebar border border-right col-md-30 col-lg-20 p-0 bg-body-tertiary">
         <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-            <div class="offcanvas-header">
+            <!--<div class="offcanvas-header">
             <h5 class="offcanvas-title" id="sidebarMenuLabel">Panel Administrador</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
-            </div>
+            </div> -->
 
             <!-- Datos del menu -->
 
@@ -50,21 +50,19 @@
 
     <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
 
-		<h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
-			Alumnos
-		</h1>
+        <h1 class="tw-text-center tw-pt-10 tw-pb-10 tw-font-bold">Estudiantes</h1>
 
 		<div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
 
 
-			<table class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-				<thead>
+			<table class="table table-striped">
+				<thead class="thead-dark">
 					<tr>
-						<th data-priority="1">Nombre</th>
-						<th data-priority="2">Apellido</th>
-						<th data-priority="3">DNI</th>
-						<th data-priority="4">Email</th>
-						<th data-priority="5">Telefono</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">DNI</th>
+						<th scope="col">Email</th>
+						<th scope="col">Telefono</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -77,7 +75,6 @@
 						<td>{{$student->phone}}</td>
 					</tr>
                     @endforeach
-
 
 				</tbody>
 			</table>

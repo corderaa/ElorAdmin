@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function getAllStudent(Request $request)
     {
-            $students = User::all();
+            $students = User::where('userType_id', 4)->get();
 
             return view('admin.student.index',['students' => $students]);
 
