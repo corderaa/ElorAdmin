@@ -47,7 +47,7 @@ class UserController extends Controller
     {
             $students = User::where('userType_id', 4)->get();
 
-            return view('admin.student.index',['students' => $students]);
+            return view('admin.student.index',['students' => $students ]);
 
         //return view('admin.student.index', compact('students'));
 
