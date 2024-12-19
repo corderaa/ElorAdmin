@@ -78,6 +78,9 @@
 
 				</tbody>
 			</table>
+            <div class="tw-p-2">
+                {{ $students->links() }}
+            </div>
 		</div>
 	</div>
 </div>
