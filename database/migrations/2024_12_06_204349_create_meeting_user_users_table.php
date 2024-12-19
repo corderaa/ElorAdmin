@@ -16,8 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('first_user_id');
             $table->unsignedBigInteger('second_user_id');
+            $table->unsignedBigInteger('meeting_status_id');
             $table->foreign('second_user_id')->references('id')->on('users');
             $table->foreign('first_user_id')->references('id')->on('users');
+            $table->foreign('meeting_status_id')->references('id')->on('meeting_statuses');
             $table->date('day');
             $table->integer('hour');
             $table->unique(['first_user_id', 'day','hour']);

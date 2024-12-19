@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Study;
 use App\Models\UserType;
+use App\Models\Subject;
+use App\Models\Meeting_user_user;
 
 class UserController extends Controller
 {
@@ -19,14 +22,35 @@ class UserController extends Controller
         $role = UserType::where('role','USER')->first();
         $students = User::where("userType_id", $role->id)->count();
 
-        $rolePersonal = UserType::where('role','GOD')->first();
-        $personal = User::where("userType_id", $rolePersonal->id)->count();
+        $rolePersonal = UserType::where('role','USER')->first();
+        $personal = User::whereNot("userType_id", $rolePersonal->id)->count();
+
+        $studies = Study::count();
+
+        $subjects = Subject::count();
+
+        $usersWithNoRole = User::where('userType_id', 'null')->count();
+
+        $date = date('m/d/Y h:i:s a', time());
+        $meeting = Meeting_user_user::where('day', '>', $date)->count();
+
+        //$meetingToday= Meeting_user_user::where('day',$date, 'first_user_id', 3)->count();
 
         if ($request->expectsJson()) {
             return response()->json($users);
         } else {
-            return view('admin.index',['users' => $users, 'students' => $students, 'personal' => $personal]);
+            return view('admin.index',['users' => $users, 'students' => $students, 'personal' => $personal, 'studies' => $studies, 'subjects' => $subjects, 'usersWithNoRole' => $usersWithNoRole, 'meeting' => $meeting]);
         }
+    }
+
+    public function getAllStudent(Request $request)
+    {
+            $students = User::where('userType_id', 4)->get();
+
+            return view('admin.student.index',['students' => $students]);
+
+        //return view('admin.student.index', compact('students'));
+
     }
 
     public function studentIndex(Request $request)
@@ -49,6 +73,8 @@ class UserController extends Controller
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
+
+
     }
 
     function getTeacher(User $authenticatedUser){
@@ -62,7 +88,7 @@ class UserController extends Controller
         ->select("u.name", "u.email")
         ->where("s.id", "=", 1)
         ->get();
-        
+
         return $teachers;
     }
 
@@ -72,7 +98,7 @@ class UserController extends Controller
     public function create()
     {
         return view('users.create');
-    }   
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -80,7 +106,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = new User();
-        
+
         $user->save();
         return redirect()->route('users.index');
     }
@@ -118,5 +144,5 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index');
     }
-    
+
 }

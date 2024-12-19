@@ -18,48 +18,56 @@ class MeetingUserUserSeeder extends Seeder
             "second_user_id"=>"7",
             "day"=>"2024-12-09",
             "hour"=>"1",
+            "meeting_status_id" => "1",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"4",
             "second_user_id"=>"8",
             "day"=>"2024-12-09",
             "hour"=>"2",
+            "meeting_status_id" => "1",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"3",
             "second_user_id"=>"9",
             "day"=>"2024-12-10",
             "hour"=>"3",
+            "meeting_status_id" => "3",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"4",
             "second_user_id"=>"10",
             "day"=>"2024-12-10",
             "hour"=>"4",
+            "meeting_status_id" => "2",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"4",
             "second_user_id"=>"11",
             "day"=>"2024-12-11",
             "hour"=>"1",
+            "meeting_status_id" => "1",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"3",
             "second_user_id"=>"12",
             "day"=>"2024-12-11",
             "hour"=>"2",
+            "meeting_status_id" => "2",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"3",
             "second_user_id"=>"13",
             "day"=>"2024-12-12",
             "hour"=>"3",
+            "meeting_status_id" => "1",
         ]);
         DB::table('meeting_user_users')->insert([
             "first_user_id"=>"4",
             "second_user_id"=>"14",
             "day"=>"2024-12-12",
             "hour"=>"4",
+            "meeting_status_id" => "1",
         ]);
     }
 }
