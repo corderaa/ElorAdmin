@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin','adminIndex')->name('users.adminIndex');
         Route::get('/users','studentHome')->name('users.studentIndex');
         Route::get('/admin/student', 'getAllStudent')->name('users.getAllStudents');
+        Route::get('/admin/staff', 'getStaff')->name('users.getStaff');
     });
 });
 Auth::routes();

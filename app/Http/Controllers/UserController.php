@@ -54,6 +54,13 @@ class UserController extends Controller
         //return view('admin.student.index', compact('students'));
 
     }
+    public function getStaff(Request $request)
+    {
+        $paginationCount = 10;
+        $staff = User::whereNot('userType_id', 4)->paginate($paginationCount);
+
+        return view('admin.staff.index',['staff' => $staff ]);
+    }
 
     public function studentIndex(Request $request)
     {
