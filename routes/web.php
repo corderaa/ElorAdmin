@@ -20,6 +20,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users','studentHome')->name('users.studentIndex');
         Route::get('/admin/student', 'getAllStudent')->name('users.getAllStudents');
         Route::get('/admin/staff', 'getStaff')->name('users.getStaff');
+
     });
+    Route::resources(['users' => UserController::class]);
 });
 Auth::routes();
