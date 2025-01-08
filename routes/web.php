@@ -18,6 +18,7 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(UserController::class)->group(function(){
         Route::get('/admin','adminIndex')->name('users.adminIndex');
         Route::get('/users','studentHome')->name('users.studentIndex');
+        //Route::get('/users','show')->name('users.show');
         Route::get('/admin/student', 'getAllStudent')->name('users.getAllStudents');
         Route::get('/admin/staff', 'getStaff')->name('users.getStaff');
 

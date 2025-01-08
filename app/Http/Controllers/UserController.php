@@ -82,8 +82,6 @@ class UserController extends Controller
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
-
-
     }
 
     function getTeacher(User $authenticatedUser){
@@ -125,7 +123,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show',['user'=>$user]);
+        return view('admin.showuser',['user'=>$user]);
     }
 
     /**
@@ -133,7 +131,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',['user'=>$user]);
+        return view('admin.edit',['user'=>$user]);
     }
 
     /**
@@ -141,8 +139,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $user->name = $request->name;
+        $user->lastNames = $request->lastNames;
+        $user->DNI = $request->DNI;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->phone;
+
+
         $user->save();
-        return view('users.show',['user'=>$user]);
+        return view('admin.showuser',['user'=>$user]);
     }
 
     /**
