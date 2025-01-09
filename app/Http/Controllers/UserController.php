@@ -54,6 +54,13 @@ class UserController extends Controller
         //return view('admin.student.index', compact('students'));
 
     }
+    public function getStaff(Request $request)
+    {
+        $paginationCount = 10;
+        $staff = User::whereNot('userType_id', 4)->paginate($paginationCount);
+
+        return view('admin.staff.index',['staff' => $staff ]);
+    }
 
     public function studentIndex(Request $request)
     {
@@ -75,8 +82,6 @@ class UserController extends Controller
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
-
-
     }
 
     function getTeacher(User $authenticatedUser){
@@ -99,7 +104,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('admin.create');
     }
 
     /**
@@ -107,10 +112,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $users = new User();
+        $user = new User();
 
+        $user->name = $request->name;
+        $user->lastNames = $request->lastNames;
+        $user->DNI = $request->DNI;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->phone;
+        $user->userType_id = 1;
+        $user->password = 123;
+        
         $user->save();
-        return redirect()->route('users.index');
+        return redirect()->route('users.adminIndex');
     }
 
     /**
@@ -118,7 +132,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show',['user'=>$user]);
+        return view('admin.showuser',['user'=>$user]);
     }
 
     /**
@@ -126,7 +140,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',['user'=>$user]);
+        return view('admin.edit',['user'=>$user]);
     }
 
     /**
@@ -134,8 +148,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $user->name = $request->name;
+        $user->lastNames = $request->lastNames;
+        $user->DNI = $request->DNI;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->phone;
+
+
         $user->save();
-        return view('users.show',['user'=>$user]);
+        return view('admin.showuser',['user'=>$user]);
     }
 
     /**
@@ -144,7 +166,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.adminIndex');
     }
 
 }

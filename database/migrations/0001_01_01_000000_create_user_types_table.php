@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('role')->unique();
             $table->string('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

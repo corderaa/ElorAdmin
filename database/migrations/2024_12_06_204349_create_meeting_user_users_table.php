@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('meeting_user_users', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->unsignedBigInteger('first_user_id');
             $table->unsignedBigInteger('second_user_id');
             $table->unsignedBigInteger('meeting_status_id');
