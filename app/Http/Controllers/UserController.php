@@ -45,19 +45,58 @@ class UserController extends Controller
 
     public function getAllStudent(Request $request)
     {
-            $students = User::where('userType_id', 4)->get();
 
-            return view('admin.student.index',['students' => $students]);
+            $paginationCount = 10;
+            $students = User::where('userType_id', 4)->paginate($paginationCount);
+
+            return view('admin.student.index',['students' => $students ]);
 
         //return view('admin.student.index', compact('students'));
 
     }
-
-    public function studentHome(Request $request)
+    public function getStaff(Request $request)
     {
+        $paginationCount = 10;
+        $staff = User::whereNot('userType_id', 4)->paginate($paginationCount);
+
+        return view('admin.staff.index',['staff' => $staff ]);
+    }
+
+    public function studentIndex(Request $request)
+    {
+    //$userType = Auth::user()->userTypes;
+    //$teachers = null;
+    //
+    //function getTeacher(){
+    //    $teachers = DB::table("subject_user_schedules as sus")
+    //->join("users as u", function($join){
+    //	$join->on("sus.user_id", "=", "u.id");
+    //})
+    //->join("subjects as s", function($join){
+    //	$join->on("sus.subject_id", "=", "s.id");
+    //})
+    //->select("u.name", "u.email")
+    //->where("s.id", "=", 1)
+    //->get();
+    //}
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
+    }
+
+    function getTeacher(User $authenticatedUser){
+        $teachers = DB::table("subject_user_schedules as sus")
+        ->join("users as u", function($join){
+        	$join->on("sus.user_id", "=", "u.id");
+        })
+        ->join("subjects as s", function($join){
+        	$join->on("sus.subject_id", "=", "s.id");
+        })
+        ->select("u.name", "u.email")
+        ->where("s.id", "=", 1)
+        ->get();
+
+        return $teachers;
     }
 
     /**
@@ -65,7 +104,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('admin.create');
     }
 
     /**
@@ -73,10 +112,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $users = new User();
+        $user = new User();
 
+        $user->name = $request->name;
+        $user->lastNames = $request->lastNames;
+        $user->DNI = $request->DNI;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->phone;
+        $user->userType_id = 1;
+        $user->password = 123;
+        
         $user->save();
-        return redirect()->route('users.index');
+        return redirect()->route('users.adminIndex');
     }
 
     /**
@@ -84,7 +132,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show',['user'=>$user]);
+        return view('admin.showuser',['user'=>$user]);
     }
 
     /**
@@ -92,7 +140,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',['user'=>$user]);
+        return view('admin.edit',['user'=>$user]);
     }
 
     /**
@@ -100,8 +148,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user = new User();
-        return view('users.show',['user'=>$user]);
+        $user->name = $request->name;
+        $user->lastNames = $request->lastNames;
+        $user->DNI = $request->DNI;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->phone;
+
+
+        $user->save();
+        return view('admin.showuser',['user'=>$user]);
     }
 
     /**
@@ -110,7 +166,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.adminIndex');
     }
 
 }

@@ -27,12 +27,14 @@ return new class extends Migration
             $table->foreign('userType_id')->references('id')->on('user_types');
             $table->string('password');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
+            $table->softDeletes();
             $table->timestamp('created_at')->nullable();
         });
 
@@ -43,6 +45,7 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+            $table->softDeletes();
         });
     }
 
