@@ -104,7 +104,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('admin.create');
     }
 
     /**
@@ -112,10 +112,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $users = new User();
+        $user = new User();
 
+        $user->name = $request->name;
+        $user->lastNames = $request->lastNames;
+        $user->DNI = $request->DNI;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->email = $request->phone;
+        $user->userType_id = 1;
+        $user->password = 123;
+        
         $user->save();
-        return redirect()->route('users.index');
+        return redirect()->route('users.adminIndex');
     }
 
     /**

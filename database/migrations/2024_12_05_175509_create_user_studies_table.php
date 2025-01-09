@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->date('registrationDate');
+            $table->softDeletes();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('study_id');
             $table->foreign('user_id')->references('id')->on('users');
