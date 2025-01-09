@@ -100,7 +100,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->save();
+        $user = new User();
         return view('users.show',['user'=>$user]);
     }
 
