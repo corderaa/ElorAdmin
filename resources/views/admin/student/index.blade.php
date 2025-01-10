@@ -16,14 +16,14 @@
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">Nombre</th>
-						<th scope="col">Apellido</th>
+						<th scope="col">Descripcion</th>
 						<th scope="col">DNI</th>
 						<th scope="col">Email</th>
 						<th scope="col">Telefono</th>
                         <th class="tw-text-center"> 
                             <a href="{{route('users.create')}}">
                                 <button type="submit" class="btn btn-success bg-dark">
-                                Crear estudiante
+                                Crear
                                 </button>
                             </a>
                         </th>

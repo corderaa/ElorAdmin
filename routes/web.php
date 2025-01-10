@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudyController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\UserTypeController;
 use Illuminate\Http\Request;
 
 Route::middleware(['auth'])->group(function () {
@@ -23,6 +26,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/staff', 'getStaff')->name('users.getStaff');
 
     });
+
     Route::resources(['users' => UserController::class]);
+    Route::resources(['studies' => StudyController::class]);
+    Route::resources(['subjects' => SubjectController::class]);
+    Route::resources(['roles' => UserTypeController::class]);
 });
 Auth::routes();

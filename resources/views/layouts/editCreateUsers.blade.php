@@ -23,6 +23,15 @@
                 <li class="list-group-item">Telefono
                     <input type="text" class="form-control" id="phone" name="phone" required value="{{ old('phone', $user->phone ?? '') }}"/>
                 </li>
+
+                <li class="list-group-item">Rol
+                    <select class="form-control" id="userType_id" name="userType_id" required>
+                        <option value="1" {{ old( $user->userType_id ?? '') == 1 ? 'selected' : '' }}>God</option>
+                        <option value="2" {{ old( $user->userType_id ?? '') == 2 ? 'selected' : '' }}>Admin</option>
+                        <option value="3" {{ old( $user->userType_id ?? '') == 3 ? 'selected' : '' }}>Profesor</option>
+                        <option value="4" {{ old( $user->userType_id ?? '') == 4 ? 'selected' : '' }}>Alumno</option>
+                    </select>
+                </li>
             </ul>
         </div>
             
