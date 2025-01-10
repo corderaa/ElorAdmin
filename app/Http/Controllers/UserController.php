@@ -119,8 +119,8 @@ class UserController extends Controller
         $user->DNI = $request->DNI;
         $user->address = $request->address;
         $user->phone = $request->phone;
-        $user->email = $request->phone;
-        $user->userType_id = 1;
+        $user->email = $request->email;
+        $user->userType_id = $request->userType_id;
         $user->password = 123;
         
         $user->save();
