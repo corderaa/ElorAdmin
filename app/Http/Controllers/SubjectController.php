@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\Study;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -23,7 +24,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        $studies = Study::all();
+        return view('admin.subjects.create',['studies' => $studies]);
     }
 
     /**
@@ -31,7 +33,16 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $subject = new Subject();
+
+        $subject->name = $request->name;
+        $subject->description = $request->description;
+        $subject->study_id = $request->study_id;
+
+
+        $subject->save();
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -47,7 +58,8 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        return view('admin.subjects.edit',['subject'=>$subject]);
+        $studies = Study::all();
+        return view('admin.subjects.edit',['subject'=>$subject , 'studies' => $studies]);
     }
 
     /**
@@ -68,6 +80,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return redirect()->route('subjects.index');
     }
 }
