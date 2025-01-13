@@ -5,7 +5,7 @@
     <form class="mt-2" name="create_platform" action="{{route('studies.update',$study)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    @include('layouts.editStudySubject')
+    @include('layouts.editCreateStudy')
 
     <button type="submit" class="tw-bg-[#211261] tw-p-1 tw-text-white tw-rounded-lg tw-w-96" name="">Actualizar</button>
 
