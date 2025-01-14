@@ -33,9 +33,9 @@
 				<tbody>
                     @foreach ($meetings_user_user as $meeting_user_user)
                     <tr>
-						<td>{{$meeting_user_user->first_user_id}}</td>
-						<td>{{$meeting_user_user->second_user_id}}</td>
-						<td>{{$meeting_user_user->meeting_status_id}}</td>
+						<td>{{$meeting_user_user->firstUser->name}}</td>
+						<td>{{$meeting_user_user->secondUser->name}}</td>
+						<td>{{$meeting_user_user->status->code}}</td>
 						<td>{{$meeting_user_user->day}}</td>
 
 
