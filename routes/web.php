@@ -10,7 +10,7 @@ Route::middleware(['auth'])->group(function () {
         {
             return redirect()->route('users.adminIndex');
         } else {
-            return redirect()->route('users.studentIndex');
+            return redirect()->route('users.index');
         }
 
     });
