@@ -9,7 +9,7 @@
     @include('layouts.nav')
     <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
 
-        <h1 class="tw-text-center tw-pt-10 tw-pb-10 tw-font-bold">Ciclos formativos</h1>
+        <h1 class="tw-text-center tw-pt-10 tw-pb-10 tw-font-bold">Reuniones</h1>
 
 		<div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
 
@@ -17,10 +17,12 @@
 			<table class="table table-striped">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Nombre</th>
-						<th scope="col">Descripcion</th>
+						<th scope="col">Primer usuario</th>
+						<th scope="col">Segundo usuario</th>
+						<th scope="col">Estado</th>
+						<th scope="col">Dia</th>
                         <th class="tw-text-center">
-                            <a href="{{route('studies.create')}}">
+                            <a href="#">
                                 <button type="submit" class="btn btn-success bg-dark">
                                 Crear
                                 </button>
@@ -29,25 +31,28 @@
 					</tr>
 				</thead>
 				<tbody>
-                    @foreach ($studies as $study)
+                    @foreach ($meetings_user_user as $meeting_user_user)
                     <tr>
-						<td>{{$study->name}}</td>
-						<td>{{$study->description}}</td>
+						<td>{{$meeting_user_user->firstUser->name}}</td>
+						<td>{{$meeting_user_user->secondUser->name}}</td>
+						<td>{{$meeting_user_user->status->code}}</td>
+						<td>{{$meeting_user_user->day}}</td>
+
 
                         <td class="tw-flex tw-flex-row tw-justify-center">
 
-                            <a class="btn btn-sm btn-info bg-primary tw-h-[1.65rem]" href="{{route('studies.show',$study)}}" role="button">
+                            <a class="btn btn-sm btn-info bg-primary tw-h-[1.65rem]" href="#" role="button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
                               </svg></a>
 
-                              <a class="btn btn-sm btn-warning bg-secondary border-secondary tw-h-[1.65rem]" href="{{route('studies.edit',$study)}}" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                              <a class="btn btn-sm btn-warning bg-secondary border-secondary tw-h-[1.65rem]" href="#" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                               </svg></a>
 
-                              <form action="{{route('studies.destroy',$study)}}" method="POST">
+                              <form action="#" method="POST">
                                 @csrf
                                 @method('DELETE')
 
@@ -65,7 +70,7 @@
 				</tbody>
 			</table>
             <div class="tw-p-2">
-                {{ $studies->links() }}
+                {{ $meetings_user_user->links() }}
             </div>
 		</div>
 	</div>
