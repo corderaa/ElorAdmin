@@ -122,7 +122,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->userType_id = $request->userType_id;
         $user->password = 123;
-        
+
         $user->save();
         return redirect()->route('users.adminIndex');
     }

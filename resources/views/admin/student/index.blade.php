@@ -5,12 +5,12 @@
  <!-- Menu -->
 
 
-
+ @include('layouts.nav')
     <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
-        @include('layouts.nav')
+
         <h1 class="tw-text-center tw-pt-10 tw-pb-10 tw-font-bold">Estudiantes</h1>
 
-		<div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+		<div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white" id="patata">
 
 			<table class="table table-striped">
 				<thead class="thead-dark">
@@ -20,7 +20,7 @@
 						<th scope="col">DNI</th>
 						<th scope="col">Email</th>
 						<th scope="col">Telefono</th>
-                        <th class="tw-text-center"> 
+                        <th class="tw-text-center">
                             <a href="{{route('users.create')}}">
                                 <button type="submit" class="btn btn-success bg-dark">
                                 Crear
@@ -69,6 +69,7 @@
                                     </svg>
                                 </button>
                             </form>
+
                         </td>
                     </tr>
                     @endforeach
