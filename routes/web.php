@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudyController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\UserTypeController;
+use App\Http\Controllers\MeetingUserUserController;
 use Illuminate\Http\Request;
 
 Route::middleware(['auth'])->group(function () {
@@ -10,7 +14,7 @@ Route::middleware(['auth'])->group(function () {
         {
             return redirect()->route('users.adminIndex');
         } else {
-            return redirect()->route('users.studentIndex');
+            return redirect()->route('users.index');
         }
 
     });
@@ -18,11 +22,16 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(UserController::class)->group(function(){
         Route::get('/admin','adminIndex')->name('users.adminIndex');
         Route::get('/users','studentHome')->name('users.studentIndex');
-        //Route::get('/users','show')->name('users.show');
         Route::get('/admin/student', 'getAllStudent')->name('users.getAllStudents');
         Route::get('/admin/staff', 'getStaff')->name('users.getStaff');
 
     });
+
+
     Route::resources(['users' => UserController::class]);
+    Route::resources(['studies' => StudyController::class]);
+    Route::resources(['subjects' => SubjectController::class]);
+    Route::resources(['roles' => UserTypeController::class]);
+    Route::resources(['meetings' => MeetingUserUserController::class]);
 });
 Auth::routes();
