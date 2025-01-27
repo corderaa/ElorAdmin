@@ -12,6 +12,21 @@ class StudyController extends Controller
     /**
      * Display a listing of the resource.
      */
+    /**
+    * @OA\Get(
+    *     path="/api/studies",
+    *     summary="Mostrar modulos",
+    *     tags={"Studies"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Mostrar todos los modulos."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function index()
     {
         $studies = Study::orderBy('created_at')->get();
@@ -23,6 +38,21 @@ class StudyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+        /**
+    * @OA\Post(
+    *     path="/api/studies",
+    *     summary="Guardar modulo",
+    *     tags={"Studies"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Guarda modulo nuevo."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function store(Request $request)
     {
         $study = new Study();
@@ -35,6 +65,21 @@ class StudyController extends Controller
     /**
      * Display the specified resource.
      */
+         /**
+    * @OA\Get(
+    *     path="api/studies/{study}",
+    *     summary="Enseña un modulo",
+    *     tags={"Studies"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Enseña un modulo."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function show(Study $study)
     {
         $study = Study::find($study->id);
@@ -44,6 +89,21 @@ class StudyController extends Controller
     /**
      * Update the specified resource in storage.
      */
+         /**
+    * @OA\Post(
+    *     path="/api/studies/{study}",
+    *     summary="Modifica un modulo",
+    *     tags={"Studies"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Modificar un modulo."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function update(Request $request, Study $study)
     {
         $study = Study::find($request->id);
@@ -54,6 +114,21 @@ class StudyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+          /**
+    * @OA\Delete(
+    *     path="api/studies/{study}",
+    *     summary="Elimina un modulo",
+    *     tags={"Studies"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Elimina un modulo."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function destroy(Study $study)
     {
         $study->delete();
