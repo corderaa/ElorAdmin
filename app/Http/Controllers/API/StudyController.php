@@ -14,7 +14,8 @@ class StudyController extends Controller
      */
     public function index()
     {
-        $studies = Study::orderBy('created_at')->get();
+        $paginationCount = 10;
+        $studies = Study::orderBy('created_at')->paginate($paginationCount);
 
         return response()->json(['studies'=>$studies])
             ->setStatusCode(Response::HTTP_OK);

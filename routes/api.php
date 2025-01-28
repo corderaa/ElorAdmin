@@ -11,15 +11,15 @@ use App\Http\Controllers\API\UserTypeController;
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiresources([
         'users' => UserController::class,
-   ]);
-});
+    ]);
+    Route::apiresources([
+        'studies' => StudyController::class,
+    ]);
+    Route::apiresources([
+        'subjects' => SubjectController::class,
+    ]);
 
-Route::apiresources([
-    'studies' => StudyController::class,
-]);
-Route::apiresources([
-    'subjects' => SubjectController::class,
-]);
+});
 Route::apiresources([
     'usertypes' => UserTypeController::class,
 ]);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -13,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::orderBy('created_at')->get();
+        $paginationCount = 10;
+        $user = User::orderBy('created_at')->paginate($paginationCount);
 
         return response()->json(['user'=>$user])
         ->setStatusCode(Response::HTTP_OK);
@@ -54,7 +56,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete(); 
+        $user->delete();
         return response()->json(['deleted succesfully'])->setStatusCode(Response::HTTP_OK);
     }
 }

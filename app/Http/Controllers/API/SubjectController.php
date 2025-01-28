@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class SubjectController extends Controller
 {
@@ -13,7 +14,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::orderBy('created_at')->get();
+        $paginationCount = 10;
+        $subjects = Subject::orderBy('created_at')->paginate($paginationCount);
 
         return response()->json(['subjects'=>$subjects])
         ->setStatusCode(Response::HTTP_OK);
@@ -55,7 +57,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        $subject->delete(); 
+        $subject->delete();
         return response()->json(['deleted succesfully'])->setStatusCode(Response::HTTP_OK);
     }
 }
