@@ -35,6 +35,13 @@ class StudyController extends Controller
         return response()->json(['studies'=>$studies])
             ->setStatusCode(Response::HTTP_OK);
     }
+    public function indexV2(){
+        $studies = Study::orderBy('created_at')->paginate($paginationCount);
+
+        return response()->json(['studies'=>$studies])
+            ->setStatusCode(Response::HTTP_OK);
+    }
+
 
     /**
      * Store a newly created resource in storage.

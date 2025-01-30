@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
@@ -20,7 +20,7 @@
 <body>
     <div id="app">
         <nav class="navbar tw-bg-[#211261] navbar-expand-md navbar-light shadow-sm">
-            
+
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="../../images/logoElorrieta-svg.svg" width="150px"/>
@@ -73,6 +73,7 @@
                 </div>
             </div>
         </nav>
+
 
         <main class="py-4">
             @yield('content')
