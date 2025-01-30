@@ -22,6 +22,6 @@
             </button>
         </a>
     </div>
-  
+
 
 @endsection

@@ -6,11 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/**
+* @OA\Info(
+*     title="API ElorAdmin", 
+*     version="1.0"
+*)
+*/
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
+    * @OA\Get(
+    *     path="/api/users",
+    *     summary="Mostrar usuarios",
+    *     tags={"Users"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Mostrar todos los usuarios."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function index()
     {
         $user = User::orderBy('created_at')->get();
@@ -42,6 +60,21 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
+         /**
+    * @OA\Post(
+    *     path="/api/users/{user}",
+    *     summary="Modifica un usuario",
+    *     tags={"Users"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="Modificar un usuario."
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     )
+    * )
+    */
     public function update(Request $request, User $user)
     {
         $user = User::find($request->id);

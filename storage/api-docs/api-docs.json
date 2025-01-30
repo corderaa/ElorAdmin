@@ -1,0 +1,461 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API ElorAdmin",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/studies": {
+            "get": {
+                "tags": [
+                    "Studies"
+                ],
+                "summary": "Mostrar modulos",
+                "operationId": "23899138606040a842fd75f103acb29c",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los modulos."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Studies"
+                ],
+                "summary": "Guardar modulo",
+                "operationId": "eb65b1712d9a6bcaf120fc5716e5efd8",
+                "responses": {
+                    "200": {
+                        "description": "Guarda modulo nuevo."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "api/studies/{study}": {
+            "get": {
+                "tags": [
+                    "Studies"
+                ],
+                "summary": "Enseña un modulo",
+                "operationId": "97c0b465bf5d316fcc4bd248bbf592e6",
+                "responses": {
+                    "200": {
+                        "description": "Enseña un modulo."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Studies"
+                ],
+                "summary": "Elimina un modulo",
+                "operationId": "615ca072c7c500bdf714f691084d7160",
+                "responses": {
+                    "200": {
+                        "description": "Elimina un modulo."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/studies/{study}": {
+            "post": {
+                "tags": [
+                    "Studies"
+                ],
+                "summary": "Modifica un modulo",
+                "operationId": "4243c13fc78693e764a219e72c49f3f8",
+                "responses": {
+                    "200": {
+                        "description": "Modificar un modulo."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/subjects": {
+            "get": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Listar asignaturas",
+                "operationId": "034223809d31f97c85e65fb36d1bd29f",
+                "responses": {
+                    "200": {
+                        "description": "Lista de asignaturas obtenida correctamente"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Crear una nueva asignatura",
+                "operationId": "e2c447d20570f559a35f847a6be0b8f6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Matemáticas"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Asignatura de Matemáticas."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Asignatura creada correctamente"
+                    }
+                }
+            }
+        },
+        "/api/subjects/{id}": {
+            "get": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Mostrar asignatura específica",
+                "operationId": "453715d2b78a264a1ecdb77c0a016437",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la asignatura",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Asignatura obtenida correctamente"
+                    },
+                    "404": {
+                        "description": "Asignatura no encontrada"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Actualizar asignatura",
+                "operationId": "7c8c4c17a30f30aa89ce0f0613e6b850",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la asignatura",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Historia"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Asignatura de Historia."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Asignatura actualizada correctamente"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Subjects"
+                ],
+                "summary": "Eliminar una asignatura",
+                "operationId": "f55e964a3cbeb85012db401c5fef9e9d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la asignatura",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Asignatura eliminada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Subject deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Asignatura no encontrada"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Mostrar usuarios",
+                "operationId": "d7a57f4d7de18fb0f92501172472c9b6",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los usuarios."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/users/{user}": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Modifica un usuario",
+                "operationId": "5aa0463fe06e3961a873f59eb69206a2",
+                "responses": {
+                    "200": {
+                        "description": "Modificar un usuario."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/usertypes": {
+            "get": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Listar todos los tipos de usuario",
+                "operationId": "f245a484b339b29e86b7f37d6b27faea",
+                "responses": {
+                    "200": {
+                        "description": "Lista de tipos de usuario obtenida correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Crear un nuevo tipo de usuario",
+                "operationId": "e786247a7cb48c6e9e4b31c35b87390d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Administrador"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Tipo de usuario con privilegios administrativos."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Tipo de usuario creado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/usertypes/{id}": {
+            "get": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Obtener detalles de un tipo de usuario",
+                "operationId": "668a843f04693f2224dbc011f77204a0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del tipo de usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tipo de usuario obtenido correctamente"
+                    },
+                    "404": {
+                        "description": "Tipo de usuario no encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Actualizar un tipo de usuario",
+                "operationId": "edc9d0700bc3fd0c53fe44674b013113",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del tipo de usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Editor"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Tipo de usuario con permisos de edición."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tipo de usuario actualizado correctamente"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Eliminar un tipo de usuario",
+                "operationId": "01cbfa4d7704941f071a7efad6483a0d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del tipo de usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tipo de usuario eliminado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "UserType deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Tipo de usuario no encontrado"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Subjects",
+            "description": "Operaciones relacionadas con las asignaturas"
+        },
+        {
+            "name": "Studies",
+            "description": "Studies"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        },
+        {
+            "name": "UserTypes",
+            "description": "UserTypes"
+        }
+    ]
+}

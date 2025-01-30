@@ -34,7 +34,7 @@
                     </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('meetings.index') }}">
                         <p class="hover:tw-text-[#3cb4e5] tw-text-[#211261] m-0">Reuniones</p>
                     </a>
                 </ul>

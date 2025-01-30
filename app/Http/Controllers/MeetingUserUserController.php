@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meeting_user_user;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MeetingUserUserController extends Controller
@@ -12,8 +13,14 @@ class MeetingUserUserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        $paginationCount = 10;
+        $meetings_user_user = Meeting_user_user::paginate($paginationCount);
+
+        return view('admin.meetings.index',['meetings_user_user' => $meetings_user_user, 'users'=> $users ]);
+
     }
+
 
     /**
      * Show the form for creating a new resource.
