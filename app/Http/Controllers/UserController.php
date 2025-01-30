@@ -123,7 +123,12 @@ class UserController extends Controller
         $user->userType_id = $request->userType_id;
         $user->password = 123;
 
-        $user->save();
+        $authenticatedUser = Auth::user();
+
+        if ($authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $user->save();
+        }
+        
         return redirect()->route('users.adminIndex');
     }
 
@@ -154,9 +159,14 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->phone = $request->phone;
         $user->email = $request->phone;
+        $user->userType_id = $request->userType_id;
 
+        $authenticatedUser = Auth::user();
 
-        $user->save();
+        if ($authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $user->save();
+        }
+
         return view('admin.showuser',['user'=>$user]);
     }
 
@@ -165,7 +175,13 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
+
+        $authenticatedUser = Auth::user();
+
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $user->delete();
+        }   
+
         return redirect()->route('users.adminIndex');
     }
 

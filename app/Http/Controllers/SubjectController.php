@@ -41,7 +41,11 @@ class SubjectController extends Controller
         $subject->study_id = $request->study_id;
 
 
-        $subject->save();
+        $authenticatedUser = Auth::user();
+
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $subject->save();
+        }
         return redirect()->route('subjects.index');
     }
 
@@ -70,8 +74,12 @@ class SubjectController extends Controller
         $subject->name = $request->name;
         $subject->description = $request->description;
 
+        $authenticatedUser = Auth::user();
 
-        $subject->save();
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $subject->save();
+        }
+
         return view('admin.subjects.showSubject',['subject'=>$subject]);
     }
 
@@ -80,7 +88,12 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        $subject->delete();
+        $authenticatedUser = Auth::user();
+
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $subject->delete();
+        }
+   
         return redirect()->route('subjects.index');
     }
 }
