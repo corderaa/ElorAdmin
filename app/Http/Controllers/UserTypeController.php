@@ -60,6 +60,11 @@ class UserTypeController extends Controller
      */
     public function destroy(UserType $userType)
     {
-        //
+        $authenticatedUser = Auth::user();
+        if ($userType->role != "GOD" || $userType->role != "ADMIN" || $userType->role != "TEACHER" || $userType->role != "STUDENT") {
+            $userType->delete();
+        }
+
+    return redirect()->route('users.adminIndex');
     }
 }
