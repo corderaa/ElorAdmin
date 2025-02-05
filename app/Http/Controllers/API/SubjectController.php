@@ -29,7 +29,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::orderBy('created_at')->get();
+        $paginationCount = 10;
+        $subjects = Subject::orderBy('created_at')->paginate($paginationCount);
 
         return response()->json(['subjects' => $subjects], Response::HTTP_OK);
     }
@@ -149,7 +150,7 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        $subject->delete(); 
+        $subject->delete();
         return response()->json(['message' => 'Subject deleted successfully'], Response::HTTP_OK);
     }
 }
