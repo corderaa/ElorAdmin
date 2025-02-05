@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @vite(['resources/css/app.css','resources/sass/app.scss', 'resources/js/app.js'])
 @section('content')
@@ -10,8 +11,8 @@
             <li class="list-group-item">Segundo usuario:  {{ $meeting_user_user->secondUser->name}}</li>
             <li class="list-group-item">Estado:  {{ $meeting_user_user->status->code}}</li>
             <li class="list-group-item">Dia:  {{ $meeting_user_user->day}}</li>
-
         </ul>
+
     </div>
     <div class="tw-flex tw-flex-col tw-justify-center tw-w-full tw-pb-5 tw-items-center">
         <a href="{{route('meetings.index')}}">

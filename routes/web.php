@@ -27,6 +27,13 @@ Route::middleware(['auth'])->group(function () {
             : redirect()->route('users.studentIndex');
     });
     Route::get('/users', [UserController::class, 'studentIndex'])->name('users.studentIndex');
+
+
+    Route::resources(['users' => UserController::class]);
+    Route::resources(['studies' => StudyController::class]);
+    Route::resources(['subjects' => SubjectController::class]);
+    Route::resources(['roles' => UserTypeController::class]);
+    Route::resources(['meeting_user_user' => MeetingUserUserController::class]);
 });
 
 Auth::routes();
