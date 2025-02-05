@@ -36,8 +36,12 @@ class StudyController extends Controller
         $study->name = $request->name;
         $study->description = $request->description;
 
+        $authenticatedUser = Auth::user();
 
-        $study->save();
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $study->save();
+        }
+
         return redirect()->route('studies.index');
     }
 
@@ -65,8 +69,12 @@ class StudyController extends Controller
         $study->name = $request->name;
         $study->description = $request->description;
 
+        $authenticatedUser = Auth::user();
 
-        $study->save();
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $study->save();
+        }
+
         return view('admin.studies.showStudy',['study'=>$study]);
     }
 
@@ -75,7 +83,12 @@ class StudyController extends Controller
      */
     public function destroy(study $study)
     {
-        $study->delete();
+        $authenticatedUser = Auth::user();
+
+        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+            $study->delete();
+        }
+
         return redirect()->route('studies.index');
     }
 }
