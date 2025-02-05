@@ -5,6 +5,278 @@
         "version": "1.0"
     },
     "paths": {
+        "/api/meetings": {
+            "get": {
+                "tags": [
+                    "Meetings"
+                ],
+                "summary": "Listar reuniones",
+                "operationId": "ad126a0395a7bc4fbadada5ab21c2d24",
+                "responses": {
+                    "200": {
+                        "description": "Lista de reuniones obtenida correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la reunión",
+                                                "type": "integer"
+                                            },
+                                            "user_id": {
+                                                "description": "ID del usuario",
+                                                "type": "integer"
+                                            },
+                                            "meeting_date": {
+                                                "description": "Fecha y hora de la reunión",
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "status": {
+                                                "description": "Estado de la reunión",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Meetings"
+                ],
+                "summary": "Crear una nueva reunión",
+                "operationId": "ba09f7a2c24473d3c79e65173593965b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "user_id",
+                                    "meeting_date",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "description": "ID del usuario relacionado con la reunión",
+                                        "type": "integer"
+                                    },
+                                    "meeting_date": {
+                                        "description": "Fecha y hora de la reunión",
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "status": {
+                                        "description": "Estado de la reunión",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reunión creada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID de la reunión",
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "description": "ID del usuario",
+                                            "type": "integer"
+                                        },
+                                        "meeting_date": {
+                                            "description": "Fecha y hora de la reunión",
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "status": {
+                                            "description": "Estado de la reunión",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/meetings/{meetingId}": {
+            "get": {
+                "tags": [
+                    "Meetings"
+                ],
+                "summary": "Obtener una reunión específica",
+                "operationId": "44394182981e6953be43cff2b7d5a3f9",
+                "parameters": [
+                    {
+                        "name": "meetingId",
+                        "in": "path",
+                        "description": "ID de la reunión",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalles de la reunión obtenidos correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID de la reunión",
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "description": "ID del usuario",
+                                            "type": "integer"
+                                        },
+                                        "meeting_date": {
+                                            "description": "Fecha y hora de la reunión",
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "status": {
+                                            "description": "Estado de la reunión",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Meetings"
+                ],
+                "summary": "Actualizar reunión",
+                "operationId": "d1e78df79849b6cd9f4a7ec7fa86f253",
+                "parameters": [
+                    {
+                        "name": "meetingId",
+                        "in": "path",
+                        "description": "ID de la reunión",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "ID del usuario relacionado con la reunión",
+                                        "type": "integer"
+                                    },
+                                    "meeting_date": {
+                                        "description": "Fecha y hora de la reunión",
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "status": {
+                                        "description": "Estado de la reunión",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reunión actualizada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID de la reunión",
+                                            "type": "integer"
+                                        },
+                                        "user_id": {
+                                            "description": "ID del usuario",
+                                            "type": "integer"
+                                        },
+                                        "meeting_date": {
+                                            "description": "Fecha y hora de la reunión",
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "status": {
+                                            "description": "Estado de la reunión",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Meetings"
+                ],
+                "summary": "Eliminar reunión",
+                "operationId": "38b1227a5f5a62188542aae820fa0e12",
+                "parameters": [
+                    {
+                        "name": "meetingId",
+                        "in": "path",
+                        "description": "ID de la reunión",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reunión eliminada correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Mensaje de confirmación",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/studies": {
             "get": {
                 "tags": [
@@ -27,6 +299,26 @@
                 ],
                 "summary": "Guardar modulo",
                 "operationId": "eb65b1712d9a6bcaf120fc5716e5efd8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Nombre del modulo",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Descripción del modulo",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Guarda modulo nuevo."
@@ -44,6 +336,17 @@
                 ],
                 "summary": "Enseña un modulo",
                 "operationId": "97c0b465bf5d316fcc4bd248bbf592e6",
+                "parameters": [
+                    {
+                        "name": "study",
+                        "in": "path",
+                        "description": "ID del modulo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Enseña un modulo."
@@ -59,6 +362,17 @@
                 ],
                 "summary": "Elimina un modulo",
                 "operationId": "615ca072c7c500bdf714f691084d7160",
+                "parameters": [
+                    {
+                        "name": "study",
+                        "in": "path",
+                        "description": "ID del modulo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Elimina un modulo."
@@ -74,11 +388,42 @@
                 "tags": [
                     "Studies"
                 ],
-                "summary": "Modifica un modulo",
+                "summary": "Modificar un modulo",
                 "operationId": "477949d8e5b8742dd04216f3cdb642a2",
+                "parameters": [
+                    {
+                        "name": "study",
+                        "in": "path",
+                        "description": "ID del modulo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Nombre del modulo",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Descripción del modulo",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
-                        "description": "Modificar un modulo."
+                        "description": "Modifica un modulo."
                     },
                     "default": {
                         "description": "Ha ocurrido un error."
@@ -241,10 +586,357 @@
                     }
                 }
             }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Listar usuarios",
+                "operationId": "d7a57f4d7de18fb0f92501172472c9b6",
+                "responses": {
+                    "200": {
+                        "description": "Lista de usuarios obtenida correctamente"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Crear un nuevo usuario",
+                "operationId": "9fea6f2adcb69614c521a7733358382d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Juan Pérez"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "juan.perez@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuario creado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Mostrar usuario específico",
+                "operationId": "40a5104e23b52137e78c3d3ac48b88a8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario obtenido correctamente"
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Actualizar usuario",
+                "operationId": "b166772cec9714067040e77cf14beeba",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Juan Pérez"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "juan.perez@nuevoemail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "67890"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado correctamente"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Eliminar un usuario",
+                "operationId": "ce06860a51ab016ef66e753544fe4563",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario eliminado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado"
+                    }
+                }
+            }
+        },
+        "/api/user-types": {
+            "get": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Listar tipos de usuario",
+                "operationId": "bb2492dba51d3e48ec68b61c63eefb41",
+                "responses": {
+                    "200": {
+                        "description": "Lista de tipos de usuario obtenida correctamente"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Crear un nuevo tipo de usuario",
+                "operationId": "24612554846bf78c1002b7c34f7d4426",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Administrador"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Tipo de usuario con permisos administrativos."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Tipo de usuario creado correctamente"
+                    }
+                }
+            }
+        },
+        "/api/user-types/{id}": {
+            "get": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Mostrar tipo de usuario específico",
+                "operationId": "99177342ce232159e29bd44cfe6b0a96",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del tipo de usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tipo de usuario obtenido correctamente"
+                    },
+                    "404": {
+                        "description": "Tipo de usuario no encontrado"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Actualizar tipo de usuario",
+                "operationId": "09624101dfeac99ebb007cf4881c199b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del tipo de usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Moderador"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Tipo de usuario con permisos limitados de moderación."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tipo de usuario actualizado correctamente"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "UserTypes"
+                ],
+                "summary": "Eliminar un tipo de usuario",
+                "operationId": "e9b9416e23ad9c99d6e3712f09dd9ffa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del tipo de usuario",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tipo de usuario eliminado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "UserType deleted successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Tipo de usuario no encontrado"
+                    }
+                }
+            }
         }
     },
     "components": {
         "schemas": {
+            "Meeting Model": {
+                "required": [
+                    "user_id",
+                    "meeting_date",
+                    "status"
+                ],
+                "properties": {
+                    "user_id": {
+                        "description": "ID del usuario relacionado con la reunión",
+                        "type": "integer"
+                    },
+                    "meeting_date": {
+                        "description": "Fecha y hora de la reunión",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "status": {
+                        "description": "Estado de la reunión",
+                        "type": "string",
+                        "enum": [
+                            "pending",
+                            "completed"
+                        ]
+                    }
+                },
+                "type": "object"
+            },
             "Study": {
                 "title": "Study Model",
                 "required": [
@@ -341,12 +1033,24 @@
     },
     "tags": [
         {
+            "name": "Meetings",
+            "description": "Operaciones relacionadas con las reuniones"
+        },
+        {
             "name": "Studies",
             "description": "Operaciones relacionadas con los modulos"
         },
         {
             "name": "Subjects",
             "description": "Operaciones relacionadas con las asignaturas"
+        },
+        {
+            "name": "Users",
+            "description": "Operaciones relacionadas con los usuarios"
+        },
+        {
+            "name": "UserTypes",
+            "description": "Operaciones relacionadas con los tipos de usuario"
         }
     ]
 }

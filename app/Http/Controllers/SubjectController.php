@@ -43,7 +43,7 @@ class SubjectController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $subject->save();
         }
         return redirect()->route('subjects.index');
@@ -76,7 +76,7 @@ class SubjectController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $subject->save();
         }
 
@@ -90,7 +90,7 @@ class SubjectController extends Controller
     {
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $subject->delete();
         }
    

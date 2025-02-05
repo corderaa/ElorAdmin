@@ -61,7 +61,7 @@ class UserTypeController extends Controller
     public function destroy(UserType $userType)
     {
         $authenticatedUser = Auth::user();
-        if ($userType->role != "GOD" || $userType->role != "ADMIN" || $userType->role != "TEACHER" || $userType->role != "STUDENT") {
+        if ($userType_id != 1 || $userType_id != 2 || $userType_id != 3 || $userType_id != 4) {
             $userType->delete();
         }
 
