@@ -32,6 +32,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resources(['studies' => StudyController::class]);
     Route::resources(['subjects' => SubjectController::class]);
     Route::resources(['roles' => UserTypeController::class]);
-    Route::resources(['meetings' => MeetingUserUserController::class]);
+    Route::resources(['meeting_user_user' => MeetingUserUserController::class]);
 });
 Auth::routes();

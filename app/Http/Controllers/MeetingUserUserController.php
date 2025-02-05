@@ -13,11 +13,10 @@ class MeetingUserUserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
         $paginationCount = 10;
         $meetings_user_user = Meeting_user_user::paginate($paginationCount);
 
-        return view('admin.meetings.index',['meetings_user_user' => $meetings_user_user, 'users'=> $users ]);
+        return view('admin.meetings.index',['meetings_user_user' => $meetings_user_user]);
 
     }
 
@@ -43,7 +42,7 @@ class MeetingUserUserController extends Controller
      */
     public function show(Meeting_user_user $meeting_user_user)
     {
-        //
+        return view('admin.meetings.showMeeting',['meeting_user_user'=>$meeting_user_user]);
     }
 
     /**
