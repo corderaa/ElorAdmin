@@ -42,14 +42,14 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ route('meeting_user_user.index') }}">
             <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
                 <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones aceptadas hoy</h5>
                 <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ route('meeting_user_user.index') }}">
             <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
                 <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones pendientes  hoy</h5>
                 <p class="tw-text-center tw-text-3xl tw-font-bold tw-text-gray-700 tw-dark:text-gray-400">{{ $personal }}</p>
@@ -58,7 +58,7 @@
 
     </div>
     <div>
-        <a href="#">
+        <a href="{{ route('meeting_user_user.index') }}">
             <div class = " tw-flex tw-flex-row tw-justify-evenly tw-w-full">
                 <div class="tw-text-center tw-w-60 tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow">
                 <h5 class="tw-mb-2 tw-font-normal tw-tracking-tight tw-text-gray-900 tw-dark:text-white">Reuniones totales a partir de hoy</h5>
