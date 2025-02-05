@@ -7,6 +7,12 @@ use App\Models\Study;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @OA\Tag(
+ *     name="Studies",
+ *     description="Operaciones relacionadas con los modulos"
+ * )
+ */
 class StudyController extends Controller
 {
     /**
@@ -105,7 +111,7 @@ class StudyController extends Controller
      * Update the specified resource in storage.
      */
          /**
-    * @OA\Post(
+    * @OA\Put(
     *     path="/api/studies/{study}",
     *     summary="Modifica un modulo",
     *     tags={"Studies"},

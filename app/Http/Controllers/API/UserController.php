@@ -15,21 +15,6 @@ use Illuminate\Http\Response;
 */
 class UserController extends Controller
 {
-    /**
-    * @OA\Get(
-    *     path="/api/users",
-    *     summary="Mostrar usuarios",
-    *     tags={"Users"},
-    *     @OA\Response(
-    *         response=200,
-    *         description="Mostrar todos los usuarios."
-    *     ),
-    *     @OA\Response(
-    *         response="default",
-    *         description="Ha ocurrido un error."
-    *     )
-    * )
-    */
     public function index()
     {
         $paginationCount = 10;
@@ -38,10 +23,6 @@ class UserController extends Controller
         return response()->json(['user'=>$user])
         ->setStatusCode(Response::HTTP_OK);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $user = new User();
@@ -51,32 +32,11 @@ class UserController extends Controller
         return response()->json(['user'=>$user])->setStatusCode(Response::HTTP_OK);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(User $user)
     {
         return response()->json(['user'=>$user])->setStatusCode(Response::HTTP_OK);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-         /**
-    * @OA\Post(
-    *     path="/api/users/{user}",
-    *     summary="Modifica un usuario",
-    *     tags={"Users"},
-    *     @OA\Response(
-    *         response=200,
-    *         description="Modificar un usuario."
-    *     ),
-    *     @OA\Response(
-    *         response="default",
-    *         description="Ha ocurrido un error."
-    *     )
-    * )
-    */
     public function update(Request $request, User $user)
     {
         $user = User::find($request->id);
@@ -84,9 +44,6 @@ class UserController extends Controller
         return response()->json(['user'=>$user])->setStatusCode(Response::HTTP_OK);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(User $user)
     {
         $user->delete();

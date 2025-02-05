@@ -70,12 +70,12 @@
             }
         },
         "/api/studies/{study}": {
-            "post": {
+            "put": {
                 "tags": [
                     "Studies"
                 ],
                 "summary": "Modifica un modulo",
-                "operationId": "4243c13fc78693e764a219e72c49f3f8",
+                "operationId": "477949d8e5b8742dd04216f3cdb642a2",
                 "responses": {
                     "200": {
                         "description": "Modificar un modulo."
@@ -241,221 +241,112 @@
                     }
                 }
             }
-        },
-        "/api/users": {
-            "get": {
-                "tags": [
-                    "Users"
+        }
+    },
+    "components": {
+        "schemas": {
+            "Study": {
+                "title": "Study Model",
+                "required": [
+                    "name",
+                    "description"
                 ],
-                "summary": "Mostrar usuarios",
-                "operationId": "d7a57f4d7de18fb0f92501172472c9b6",
-                "responses": {
-                    "200": {
-                        "description": "Mostrar todos los usuarios."
+                "properties": {
+                    "id": {
+                        "description": "ID of the study",
+                        "type": "integer",
+                        "example": 1
                     },
-                    "default": {
-                        "description": "Ha ocurrido un error."
-                    }
-                }
-            }
-        },
-        "/api/users/{user}": {
-            "post": {
-                "tags": [
-                    "Users"
-                ],
-                "summary": "Modifica un usuario",
-                "operationId": "5aa0463fe06e3961a873f59eb69206a2",
-                "responses": {
-                    "200": {
-                        "description": "Modificar un usuario."
+                    "name": {
+                        "description": "Name of the study",
+                        "type": "string",
+                        "example": "Computer Science"
                     },
-                    "default": {
-                        "description": "Ha ocurrido un error."
-                    }
-                }
-            }
-        },
-        "/api/usertypes": {
-            "get": {
-                "tags": [
-                    "UserTypes"
-                ],
-                "summary": "Listar todos los tipos de usuario",
-                "operationId": "f245a484b339b29e86b7f37d6b27faea",
-                "responses": {
-                    "200": {
-                        "description": "Lista de tipos de usuario obtenida correctamente",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "UserTypes"
-                ],
-                "summary": "Crear un nuevo tipo de usuario",
-                "operationId": "e786247a7cb48c6e9e4b31c35b87390d",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "example": "Administrador"
-                                    },
-                                    "description": {
-                                        "type": "string",
-                                        "example": "Tipo de usuario con privilegios administrativos."
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
+                    "description": {
+                        "description": "Description of the study",
+                        "type": "string",
+                        "example": "Study of computer science and related technologies"
+                    },
+                    "created_at": {
+                        "description": "Timestamp when the study was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-01-01T00:00:00Z"
+                    },
+                    "updated_at": {
+                        "description": "Timestamp when the study was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-01-15T00:00:00Z"
+                    },
+                    "deleted_at": {
+                        "description": "Timestamp when the study was deleted (null if not deleted)",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "null"
                     }
                 },
-                "responses": {
-                    "201": {
-                        "description": "Tipo de usuario creado correctamente"
-                    }
-                }
-            }
-        },
-        "/api/usertypes/{id}": {
-            "get": {
-                "tags": [
-                    "UserTypes"
-                ],
-                "summary": "Obtener detalles de un tipo de usuario",
-                "operationId": "668a843f04693f2224dbc011f77204a0",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID del tipo de usuario",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Tipo de usuario obtenido correctamente"
-                    },
-                    "404": {
-                        "description": "Tipo de usuario no encontrado"
-                    }
-                }
+                "type": "object"
             },
-            "put": {
-                "tags": [
-                    "UserTypes"
+            "Subject": {
+                "title": "Subject Model",
+                "required": [
+                    "name",
+                    "description",
+                    "study_id"
                 ],
-                "summary": "Actualizar un tipo de usuario",
-                "operationId": "edc9d0700bc3fd0c53fe44674b013113",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID del tipo de usuario",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "name": {
-                                        "type": "string",
-                                        "example": "Editor"
-                                    },
-                                    "description": {
-                                        "type": "string",
-                                        "example": "Tipo de usuario con permisos de edición."
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
+                "properties": {
+                    "id": {
+                        "description": "ID of the subject",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Name of the subject",
+                        "type": "string",
+                        "example": "Mathematics"
+                    },
+                    "description": {
+                        "description": "Description of the subject",
+                        "type": "string",
+                        "example": "Study of mathematical principles and concepts"
+                    },
+                    "study_id": {
+                        "description": "ID of the associated study",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "description": "Timestamp when the subject was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-01-01T00:00:00Z"
+                    },
+                    "updated_at": {
+                        "description": "Timestamp when the subject was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-01-15T00:00:00Z"
+                    },
+                    "deleted_at": {
+                        "description": "Timestamp when the subject was deleted (null if not deleted)",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "null"
                     }
                 },
-                "responses": {
-                    "200": {
-                        "description": "Tipo de usuario actualizado correctamente"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "UserTypes"
-                ],
-                "summary": "Eliminar un tipo de usuario",
-                "operationId": "01cbfa4d7704941f071a7efad6483a0d",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID del tipo de usuario",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Tipo de usuario eliminado correctamente",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "UserType deleted successfully"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Tipo de usuario no encontrado"
-                    }
-                }
+                "type": "object"
             }
         }
     },
     "tags": [
         {
+            "name": "Studies",
+            "description": "Operaciones relacionadas con los modulos"
+        },
+        {
             "name": "Subjects",
             "description": "Operaciones relacionadas con las asignaturas"
-        },
-        {
-            "name": "Studies",
-            "description": "Studies"
-        },
-        {
-            "name": "Users",
-            "description": "Users"
-        },
-        {
-            "name": "UserTypes",
-            "description": "UserTypes"
         }
     ]
 }
