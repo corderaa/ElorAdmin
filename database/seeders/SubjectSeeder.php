@@ -13,65 +13,42 @@ class SubjectSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('subjects')->insert([
-            "name"=>"Programacion",
-            "description"=>"Programacion descripcion",
-            "study_id"=>"1",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Base de datos",
-            "description"=>"Base de datos descripcion",
-            "study_id"=>"1",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Lenguaje de marcas",
-            "description"=>"Lenguaje de marcas descripcion",
-            "study_id"=>"1",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Programacion",
-            "description"=>"Programacion descripcion",
-            "study_id"=>"2",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Base de datos",
-            "description"=>"Base de datos descripcion",
-            "study_id"=>"2",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Lenguaje de marcas",
-            "description"=>"Lenguaje de marcas descripcion",
-            "study_id"=>"2",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Actividades físico-deportivas individuales",
-            "description"=>"Actividades físico-deportivas individuales descripcion",
-            "study_id"=>"3",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Actividades físico-deportivas en equipo",
-            "description"=>"Actividades físico-deportivas en equipo descripcion",
-            "study_id"=>"3",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Reactores químicos",
-            "description"=>"Reactores químicos descripcion",
-            "study_id"=>"4",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Generación y recuperación de energía",
-            "description"=>"Generación y recuperación de energía descripcion",
-            "study_id"=>"4",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Automatización en carpintería y mueble",
-            "description"=>"Automatización en carpintería y mueble descripcion",
-            "study_id"=>"5",
-        ]);
-        DB::table('subjects')->insert([
-            "name"=>"Diseño de carpintería y mobiliario",
-            "description"=>"Diseño de carpintería y mobiliario descripcion",
-            "study_id"=>"5",
-        ]);
+        $subjects = [
+            1 => [
+                ["name" => "Programación en Java", "description" => "Fundamentos de programación en Java y estructuras de datos."],
+                ["name" => "Desarrollo móvil", "description" => "Creación de aplicaciones móviles con Android e iOS."],
+                ["name" => "Gestión de proyectos", "description" => "Metodologías ágiles y gestión de software."],
+            ],
+            2 => [
+                ["name" => "HTML, CSS y JavaScript", "description" => "Desarrollo de interfaces web modernas."],
+                ["name" => "PHP y Laravel", "description" => "Creación de aplicaciones web con Laravel."],
+                ["name" => "Seguridad web", "description" => "Protección contra ataques y buenas prácticas en desarrollo web."],
+            ],
+            3 => [
+                ["name" => "Psicología del deporte", "description" => "Principios psicológicos aplicados a la actividad física."],
+                ["name" => "Nutrición deportiva", "description" => "Planificación de dietas para el rendimiento físico."],
+                ["name" => "Técnicas de entrenamiento", "description" => "Diseño y aplicación de programas de entrenamiento."],
+            ],
+            4 => [
+                ["name" => "Laboratorio químico", "description" => "Manejo de materiales y reactivos en el laboratorio."],
+                ["name" => "Procesos de síntesis", "description" => "Producción de compuestos químicos a gran escala."],
+                ["name" => "Química ambiental", "description" => "Impacto de la industria química en el medio ambiente."],
+            ],
+            5 => [
+                ["name" => "Diseño asistido por computadora (CAD)", "description" => "Creación de planos y modelos digitales."],
+                ["name" => "Técnicas de carpintería avanzada", "description" => "Ensamblaje y diseño de muebles personalizados."],
+                ["name" => "Gestión de producción", "description" => "Planificación y optimización de la producción en carpintería."],
+            ],
+        ];
+
+        foreach ($subjects as $study_id => $subjectList) {
+            foreach ($subjectList as $subject) {
+                DB::table('subjects')->insert([
+                    "name" => $subject['name'],
+                    "description" => $subject['description'],
+                    "study_id" => $study_id,
+                ]);
+            }
+        }
     }
 }

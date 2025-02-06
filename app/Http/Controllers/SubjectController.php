@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Models\Study;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller

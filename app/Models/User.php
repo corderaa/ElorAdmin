@@ -12,6 +12,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
+/**
+ * @OA\Schema(
+ *     schema="User",
+ *     @OA\Property(property="id", type="integer"),
+ *     @OA\Property(property="name", type="string"),
+ *     @OA\Property(property="email", type="string"),
+ * )
+ */
 class User extends Authenticatable
 {
     use SoftDeletes;

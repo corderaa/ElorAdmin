@@ -34,8 +34,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
             'userType_id' => UserType::factory(),
-            'password' => bcrypt('password'),
-            'remember_token' => \Str::random(10),
+            'password' => bcrypt('test'),
+            'remember_token' => null,
             'deleted_at' => null,
         ];
     }
