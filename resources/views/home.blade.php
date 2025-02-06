@@ -8,7 +8,7 @@
                 <h1 class="tw-font-semibold tw-mt-10 tw-text-5xl">Tus Ciclos Formativos</h1>
             </div>
             <div class="tw-flex tw-justify-around tw-mt-16">
-               
+
                 @foreach($studies as $study)
                 <div class="tw-block tw-max-w-sm tw-p-6 tw-bg-white tw-border tw-border-gray-200 tw-rounded-lg tw-shadow tw-hover:bg-gray-100 tw-dark:bg-gray-800 tw-dark:border-gray-700 tw-dark:hover:bg-gray-700">
                     <h5 class="tw-mb-2 tw-text-2xl tw-font-bold tw-tracking-tight tw-text-gray-900 tw-dark:text-white">{{ $study->name }}</h5>
@@ -38,8 +38,8 @@
                     </div>
                 </div>
                 @endforeach
-              
-            </div> 
+
+            </div>
         </div>
     </div>
 </div>
