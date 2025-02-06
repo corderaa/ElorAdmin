@@ -34,7 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resources(['meeting_user_user' => MeetingUserUserController::class]);
     
     Route::get('/users', [UserController::class, 'studentIndex'])->name('users.studentIndex');
-
 });
 
 Auth::routes();
