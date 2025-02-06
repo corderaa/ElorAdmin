@@ -38,9 +38,12 @@ class UserController extends Controller
 
         if ($request->expectsJson()) {
             return response()->json($users);
-        } else {
+        } else if (Auth::user()->userType_id == 1 || Auth::user()->userType_id == 2) {
             return view('admin.index',['users' => $users, 'students' => $students, 'personal' => $personal, 'studies' => $studies, 'subjects' => $subjects, 'usersWithNoRole' => $usersWithNoRole, 'meeting' => $meeting]);
+        }else {
+            abort(404);
         }
+    
     }
 
     public function getAllStudent(Request $request)
@@ -64,21 +67,6 @@ class UserController extends Controller
 
     public function studentIndex(Request $request)
     {
-    //$userType = Auth::user()->userTypes;
-    //$teachers = null;
-    //
-    //function getTeacher(){
-    //    $teachers = DB::table("subject_user_schedules as sus")
-    //->join("users as u", function($join){
-    //	$join->on("sus.user_id", "=", "u.id");
-    //})
-    //->join("subjects as s", function($join){
-    //	$join->on("sus.subject_id", "=", "s.id");
-    //})
-    //->select("u.name", "u.email")
-    //->where("s.id", "=", 1)
-    //->get();
-    //}
         $authenticatedUser = Auth::user();
         $studies = $authenticatedUser->studies;
         return view('/home',['user' => $authenticatedUser, 'studies'=>$studies]);
@@ -125,7 +113,7 @@ class UserController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $user->save();
         }
         
@@ -163,7 +151,7 @@ class UserController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $user->save();
         }
 
@@ -177,9 +165,11 @@ class UserController extends Controller
     {
 
         $authenticatedUser = Auth::user();
-
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
-            $user->delete();
+        
+        if ($user->userType_id != 1) {
+            if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
+                $user->delete();
+            }
         }   
 
         return redirect()->route('users.adminIndex');
