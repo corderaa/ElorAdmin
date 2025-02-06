@@ -13,7 +13,6 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
         
         DB::table('users')-> insert([
             "name"=>"test",

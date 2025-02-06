@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Study;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudyController extends Controller
 {
@@ -38,7 +39,7 @@ class StudyController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $study->save();
         }
 
@@ -71,7 +72,7 @@ class StudyController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $study->save();
         }
 
@@ -85,7 +86,7 @@ class StudyController extends Controller
     {
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $study->delete();
         }
 

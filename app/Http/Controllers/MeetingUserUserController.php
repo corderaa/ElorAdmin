@@ -26,7 +26,7 @@ class MeetingUserUserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +34,7 @@ class MeetingUserUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -50,7 +50,7 @@ class MeetingUserUserController extends Controller
      */
     public function edit(Meeting_user_user $meeting_user_user)
     {
-        //
+        return view('admin.meetings.edit',['meeting_user_user'=>$meeting_user_user]);
     }
 
     /**
@@ -58,7 +58,20 @@ class MeetingUserUserController extends Controller
      */
     public function update(Request $request, Meeting_user_user $meeting_user_user)
     {
-        //
+
+        $meeting_user_user->firstUser->name = $request->first_user_name;
+        $meeting_user_user->secondUser->name = $request->second_user_name;
+        $meeting_user_user->status->code = $request->status;
+        $meeting_user_user->day = $request->day;
+
+        $meeting_user_user->firstUser->save();
+        $meeting_user_user->secondUser->save();
+        $meeting_user_user->status->save();
+        $meeting_user_user->save();
+
+
+        return view('admin.meetings.showMeeting',['meeting_user_user'=>$meeting_user_user]);
+
     }
 
     /**
@@ -66,6 +79,8 @@ class MeetingUserUserController extends Controller
      */
     public function destroy(Meeting_user_user $meeting_user_user)
     {
-        //
+            $meeting_user_user->delete();
+
+        return redirect()->route('meeting_user_user.index');
     }
 }

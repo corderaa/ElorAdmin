@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Models\Study;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -43,7 +44,7 @@ class SubjectController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $subject->save();
         }
         return redirect()->route('subjects.index');
@@ -76,7 +77,7 @@ class SubjectController extends Controller
 
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $subject->save();
         }
 
@@ -90,7 +91,7 @@ class SubjectController extends Controller
     {
         $authenticatedUser = Auth::user();
 
-        if ($user->userTypes->role != "GOD" && $authenticatedUser->userTypes->role == "GOD" || $authenticatedUser->userTypes->role == "ADMIN") {
+        if ($authenticatedUser->userType_id == 1 || $authenticatedUser->userType_id == 2) {
             $subject->delete();
         }
    
