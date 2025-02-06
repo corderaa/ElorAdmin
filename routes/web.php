@@ -1,5 +1,5 @@
 <?php
-    
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudyController;
@@ -17,7 +17,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::resource('studies', StudyController::class);
     Route::resource('subjects', SubjectController::class);
     Route::resource('roles', UserTypeController::class);
-    Route::resource('meetings', MeetingUserUserController::class);
+    Route::resources(['meeting_user_user' => MeetingUserUserController::class]);
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -26,13 +26,6 @@ Route::middleware(['auth'])->group(function () {
             ? redirect()->route('users.adminIndex')
             : redirect()->route('users.studentIndex');
     });
-        
-    Route::resources(['users' => UserController::class]);
-    Route::resources(['studies' => StudyController::class]);
-    Route::resources(['subjects' => SubjectController::class]);
-    Route::resources(['roles' => UserTypeController::class]);
-    Route::resources(['meeting_user_user' => MeetingUserUserController::class]);
-    
     Route::get('/users', [UserController::class, 'studentIndex'])->name('users.studentIndex');
 });
 
